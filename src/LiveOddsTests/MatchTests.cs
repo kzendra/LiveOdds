@@ -15,7 +15,11 @@ namespace LiveOdds.Tests
         [InlineData("Argentina", "Australia")]
         public void MatchTest(string homeTeam, string awayTeam)
         {
-            Assert.Fail();
+            var match = new Match(homeTeam, awayTeam);
+            Assert.AreEqual(homeTeam, match.HomeTeam);
+            Assert.AreEqual(awayTeam, match.AwayTeam);
+            Assert.IsTrue(match.HomeScore == 0);
+            Assert.IsTrue(match.AwayScore == 0);
         }
     }
 }
