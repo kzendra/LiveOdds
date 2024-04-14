@@ -21,5 +21,19 @@ namespace LiveOdds.Tests
             Assert.IsTrue(match.HomeScore == 0);
             Assert.IsTrue(match.AwayScore == 0);
         }
+
+        [TestMethod()]
+        [DataRow(0, 1)]
+        [DataRow(1, 0)]
+        [DataRow(2, 1)]
+        [DataRow(1, 2)]
+        public void UpdateScoreTest(int homeScore, int awayScore)
+        {
+            Match match = new("Mexico", "Canada");
+
+            match.UpdateScore(homeScore, awayScore);
+            Assert.AreEqual(homeScore, match.HomeScore);
+            Assert.AreEqual(awayScore, match.AwayScore);
+        }
     }
 }

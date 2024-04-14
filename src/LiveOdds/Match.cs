@@ -1,4 +1,5 @@
-﻿namespace LiveOdds
+﻿
+namespace LiveOdds
 {
     public class Match
     {
@@ -17,5 +18,10 @@
         public int HomeScore { get; private set; } 
 
         public int AwayScore { get; private set; }
+
+        internal void UpdateScore(int homeScore, int awayScore)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
