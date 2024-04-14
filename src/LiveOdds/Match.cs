@@ -1,10 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace LiveOdds
+﻿namespace LiveOdds
 {
     public class Match
     {
-        public Match(string homeTeam, string awayTeam)
+        internal Match(string homeTeam, string awayTeam)
         {
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
