@@ -7,6 +7,14 @@ namespace LiveOddsTests
     [TestClass()]
     public class LiveMatchesTests
     {
+        [TestMethod]
+        public void LiveMatchesConstructorTest() 
+        { 
+            var liveMatches = new LiveMatches();
+            Assert.IsNotNull(liveMatches.Matches);
+            Assert.IsFalse(liveMatches.Matches.Any());
+        }
+
         [TestMethod()]
         [DataRow("Mexico", "Canada")]
         public void StartMatchTest(string homeTeam, string awayTeam)
