@@ -9,7 +9,7 @@ namespace LiveOddsTests
     {
         [TestMethod()]
         [DataRow("Mexico", "Canada")]
-        public async void StartMatchTest(string homeTeam, string awayTeam)
+        public void StartMatchTest(string homeTeam, string awayTeam)
         {
             LiveMatches liveMatches = new();
             liveMatches.StartMatch(homeTeam, awayTeam);
