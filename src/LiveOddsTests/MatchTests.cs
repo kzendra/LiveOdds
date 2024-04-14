@@ -8,11 +8,11 @@ namespace LiveOdds.Tests
     public class MatchTests
     {
         [TestMethod()]
-        [InlineData("Mexico", "Canada")]
-        [InlineData("Spain", "Brazil")]
-        [InlineData("Germany", "France")]
-        [InlineData("Uruguay", "Italy")]
-        [InlineData("Argentina", "Australia")]
+        [DataRow("Mexico", "Canada")]
+        [DataRow("Spain", "Brazil")]
+        [DataRow("Germany", "France")]
+        [DataRow("Uruguay", "Italy")]
+        [DataRow("Argentina", "Australia")]
         public void MatchTest(string homeTeam, string awayTeam)
         {
             var match = new Match(homeTeam, awayTeam);
