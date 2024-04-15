@@ -9,5 +9,7 @@ namespace LiveOdds
         public uint HomeScore { get; private set; }
 
         public uint AwayScore { get; private set; }
+
+        internal void UpdateScore(uint home, uint away) { }
     }
 }
