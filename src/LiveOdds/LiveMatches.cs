@@ -34,11 +34,11 @@ namespace LiveOdds
             _activeMatches.Remove(activeMatch);
         }
 
-        public IEnumerable<ActiveMatch> GetSummary() 
-        { 
-            throw new NotImplementedException();
+        public IEnumerable<ActiveMatch> GetSummary()
+        {
+            return _activeMatches
+                .OrderByDescending(x => x.Score.TotalScore())
+                .ThenByDescending(x => x.TimeStarted);
         }
-
-
     }
 }
