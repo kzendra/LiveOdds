@@ -5,6 +5,10 @@ namespace LiveOdds
     {
         internal Match(string homeTeam, string awayTeam)
         {
+            if (string.IsNullOrWhiteSpace(homeTeam))
+                throw new ArgumentNullException(nameof(homeTeam));
+            if (string.IsNullOrWhiteSpace(awayTeam))
+                throw new ArgumentNullException(nameof(awayTeam));
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
         }

@@ -1,7 +1,4 @@
 ﻿
-using System.Runtime.CompilerServices;
-using Xunit;
-
 namespace LiveOdds.Tests
 {
     [TestClass()]
@@ -28,7 +25,7 @@ namespace LiveOdds.Tests
         [DataRow(null, null)]
         public void MatchTest_ThrowsException(string homeTeam, string awayTeam)
         {
-            Assert.ThrowsException<ArgumentException>(() => new Match(homeTeam, awayTeam));
+            Assert.ThrowsException<ArgumentNullException>(() => new Match(homeTeam, awayTeam));
         }
     }
 }
