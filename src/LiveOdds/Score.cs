@@ -21,9 +21,6 @@
             AwayScore = away;
         }
 
-        public uint TotalScore() 
-        { 
-            throw new NotImplementedException();
-        }
+        public uint TotalScore() => HomeScore + AwayScore;
     }
 }

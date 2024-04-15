@@ -41,9 +41,9 @@ namespace LiveOdds.Tests
         [TestMethod()]
         [DataRow((uint)0, (uint)0, (uint)0)]
         [DataRow((uint)0, (uint)1, (uint)1)]
-        [DataRow((uint)1, (uint)0, (uint)1))]
-        [DataRow((uint)1, (uint)1, (uint)2))]
-        [DataRow((uint)1, (uint)2, (uint)3))]
+        [DataRow((uint)1, (uint)0, (uint)1)]
+        [DataRow((uint)1, (uint)1, (uint)2)]
+        [DataRow((uint)1, (uint)2, (uint)3)]
         public void TotalScoreTest(uint home, uint away, uint total)
         {
             Score score = new();
