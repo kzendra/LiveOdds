@@ -11,6 +11,7 @@ namespace LiveOdds.Tests
             ActiveMatch activeMatch = new(match);
             Assert.IsNotNull(activeMatch);
             Assert.AreEqual(match, activeMatch.Match);
+            Assert.IsFalse(activeMatch.TimeStarted == DateTime.MinValue);
         }
 
         [TestMethod()]

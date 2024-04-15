@@ -9,6 +9,7 @@ namespace LiveOdds
                 throw new ArgumentNullException(nameof(homeTeam));
             if (string.IsNullOrWhiteSpace(awayTeam))
                 throw new ArgumentNullException(nameof(awayTeam));
+
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
         }
