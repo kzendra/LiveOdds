@@ -10,6 +10,7 @@ namespace LiveOdds.Tests
             Match match = new("Mexico", "Canada");
             ActiveMatch activeMatch = new(match);
             Assert.IsNotNull(activeMatch);
+            Assert.IsNotNull(activeMatch.Score);
             Assert.AreEqual(match, activeMatch.Match);
             Assert.IsFalse(activeMatch.TimeStarted == DateTime.MinValue);
         }

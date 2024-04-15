@@ -34,6 +34,10 @@ namespace LiveOdds
             _activeMatches.Remove(activeMatch);
         }
 
+        public IEnumerable<ActiveMatch> GetSummary() 
+        { 
+            throw new NotImplementedException();
+        }
 
 
     }
