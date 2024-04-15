@@ -1,32 +1,74 @@
-﻿
-using LiveOdds;
-using System.Text.RegularExpressions;
-
-namespace LiveOddsTests
+﻿namespace LiveOdds.Tests
 {
     [TestClass()]
     public class LiveMatchesTests
     {
         [TestMethod]
-        public void LiveMatchesConstructorTest() 
-        { 
+        public void LiveMatches_Create()
+        {
             var liveMatches = new LiveMatches();
-            Assert.IsNotNull(liveMatches.Matches);
-            Assert.IsFalse(liveMatches.Matches.Any());
+            Assert.IsNotNull(liveMatches.ActiveMatches);
+            Assert.IsFalse(liveMatches.ActiveMatches.Any());
         }
 
         [TestMethod()]
-        [DataRow("Mexico", "Canada")]
-        public void StartMatchTest(string homeTeam, string awayTeam)
+        public void AddActiveMatchTest_Success()
         {
-            LiveMatches liveMatches = new();
-            liveMatches.StartMatch(homeTeam, awayTeam);
-
-            var match = liveMatches.Matches.First();
-
-            Assert.IsTrue(liveMatches.Matches.Count() == 1);
-            Assert.AreEqual(homeTeam, match.HomeTeam);
-            Assert.AreEqual(awayTeam, match.AwayTeam);
+            var liveMatches = new LiveMatches();
+            Match match = new("Mexico", "Canada");
+            ActiveMatch activeMatch = new(match);
+            liveMatches.AddActiveMatch(activeMatch);
+            Assert.IsTrue(liveMatches.ActiveMatches.Any());
         }
+
+        [TestMethod]
+        public void AddActiveMatchTest_ThrowsArgumentNullException()
+        {
+            var liveMatches = new LiveMatches();
+            Assert.ThrowsException<ArgumentNullException>(() => liveMatches.AddActiveMatch(null));
+        }
+
+        [TestMethod]
+        public void AddActiveMatchTest_ThrowsArgumentException()
+        {
+            var liveMatches = new LiveMatches();
+            Match match = new("Mexico", "Canada");
+            ActiveMatch activeMatch = new(match);
+            liveMatches.AddActiveMatch(activeMatch);
+            Assert.ThrowsException<ArgumentException>(() =>  liveMatches.AddActiveMatch(activeMatch));
+        }
+
+
+        [TestMethod()]
+        public void FinishActiveMatchTest_Sucess()
+        {
+            var liveMatches = new LiveMatches();
+            Match match = new("Mexico", "Canada");
+            ActiveMatch activeMatch = new(match);
+            liveMatches.AddActiveMatch(activeMatch);
+            liveMatches.FinishActiveMatch(activeMatch);
+            Assert.IsFalse(liveMatches.ActiveMatches.Any(x => x == activeMatch));
+        }
+
+        [TestMethod()]
+        public void FinishActiveMatchTest_ThrowsArgumentNullException()
+        {
+            var liveMatches = new LiveMatches();
+            Match match = new("Mexico", "Canada");
+            ActiveMatch activeMatch = new(match);
+            liveMatches.AddActiveMatch(activeMatch);
+            Assert.ThrowsException<ArgumentNullException>(() => liveMatches.FinishActiveMatch(null));
+        }
+
+        [TestMethod()]
+        public void FinishActiveMatchTest_ThrowsEntityNotFoundException()
+        {
+            var liveMatches = new LiveMatches();
+            Match match = new("Mexico", "Canada");
+            ActiveMatch activeMatch = new(match);
+            Assert.ThrowsException<ArgumentNullException>(() => liveMatches.FinishActiveMatch(activeMatch));
+        }
+
     }
 }
+

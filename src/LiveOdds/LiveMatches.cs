@@ -6,16 +6,16 @@ namespace LiveOdds
     {
         public LiveMatches() 
         {
-            _matches = new List<Match>();
         }
-        private readonly List<Match> _matches;
+        private readonly List<ActiveMatch> _activeMatches;
 
-        public IEnumerable<Match> Matches => _matches;
+        public IEnumerable<ActiveMatch> ActiveMatches => _activeMatches;
 
-        internal void StartMatch(string homeTeam, string awayTeam)
-        {
-            var match = new Match(homeTeam, awayTeam);
-            _matches.Add(match);
-        }
+        public void AddActiveMatch(ActiveMatch activeMatch) { }
+
+        public void FinishActiveMatch(ActiveMatch activeMatch) { }
+
+
+
     }
 }

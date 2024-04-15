@@ -5,6 +5,8 @@ namespace LiveOdds
     {
         public ActiveMatch(Match match) 
         {
+            Match = match ?? throw new ArgumentNullException(nameof(match));
+            TimeStarted = DateTime.UtcNow;
         }
 
         public Match Match { get; private set; }
