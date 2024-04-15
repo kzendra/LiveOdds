@@ -8,7 +8,7 @@
 
         public uint AwayScore { get; private set; }
 
-        internal void UpdateScore(uint home, uint away) 
+        public void UpdateScore(uint home, uint away) 
         {
             //It might be able to decrease the score?
             if (home < HomeScore)
