@@ -1,4 +1,7 @@
-﻿namespace LiveOdds.Tests
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using LiveOdds;
+
+namespace LiveOdds.Tests
 {
     [TestClass()]
     public class ScoreTests
@@ -21,7 +24,7 @@
             Score score = new();
             score.UpdateScore(home, away);
             Assert.AreEqual(home, score.HomeScore);
-            Assert.AreEqual(away, score.AwayScore); 
+            Assert.AreEqual(away, score.AwayScore);
         }
 
         [TestMethod()]
@@ -33,6 +36,19 @@
             Score score = new();
             score.UpdateScore(2, 2);
             Assert.ThrowsException<ArgumentException>(() => score.UpdateScore(home, away));
+        }
+
+        [TestMethod()]
+        [DataRow((uint)0, (uint)0, (uint)0)]
+        [DataRow((uint)0, (uint)1, (uint)1)]
+        [DataRow((uint)1, (uint)0, (uint)1))]
+        [DataRow((uint)1, (uint)1, (uint)2))]
+        [DataRow((uint)1, (uint)2, (uint)3))]
+        public void TotalScoreTest(uint home, uint away, uint total)
+        {
+            Score score = new();
+            score.UpdateScore(home, away);
+            Assert.AreEqual(total, score.TotalScore());
         }
     }
 }

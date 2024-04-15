@@ -20,5 +20,10 @@
             HomeScore = home;
             AwayScore = away;
         }
+
+        public uint TotalScore() 
+        { 
+            throw new NotImplementedException();
+        }
     }
 }
