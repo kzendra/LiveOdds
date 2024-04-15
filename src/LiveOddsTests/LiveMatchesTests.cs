@@ -61,12 +61,12 @@
         }
 
         [TestMethod()]
-        public void FinishActiveMatchTest_ThrowsEntityNotFoundException()
+        public void FinishActiveMatchTest_ThrowsArgumentException()
         {
             var liveMatches = new LiveMatches();
             Match match = new("Mexico", "Canada");
             ActiveMatch activeMatch = new(match);
-            Assert.ThrowsException<ArgumentNullException>(() => liveMatches.FinishActiveMatch(activeMatch));
+            Assert.ThrowsException<ArgumentException>(() => liveMatches.FinishActiveMatch(activeMatch));
         }
 
     }
