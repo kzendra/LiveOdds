@@ -13,9 +13,8 @@ namespace LiveOdds
         public IEnumerable<ActiveMatch> ActiveMatches => _activeMatches;
 
         public void AddActiveMatch(ActiveMatch activeMatch) 
-        { 
-            if (activeMatch == null)
-                throw new ArgumentNullException(nameof(activeMatch));
+        {
+            ArgumentNullException.ThrowIfNull(activeMatch);
 
             if (_activeMatches.Any(x => x == activeMatch))
                 throw new ArgumentException(nameof(activeMatch));
@@ -25,13 +24,14 @@ namespace LiveOdds
 
         public void FinishActiveMatch(ActiveMatch activeMatch) 
         {
-            if (activeMatch == null)
-                throw new ArgumentNullException(nameof(activeMatch));
+            ArgumentNullException.ThrowIfNull(activeMatch);
 
-            if (!_activeMatches.Any(x => x == activeMatch))
+            if (_activeMatches.Any(x => x == activeMatch))
+                _activeMatches.Remove(activeMatch);
+            else
                 throw new ArgumentException("Entity not found", nameof(activeMatch));
 
-            _activeMatches.Remove(activeMatch);
+            
         }
 
         public IEnumerable<ActiveMatch> GetSummary()
