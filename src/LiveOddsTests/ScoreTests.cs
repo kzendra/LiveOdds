@@ -7,7 +7,10 @@ namespace LiveOdds.Tests
         [TestMethod()]
         public void ScoreTest()
         {
-            Assert.Fail();
+            Score score = new();
+
+            Assert.IsTrue(score.HomeScore == 0);
+            Assert.IsTrue(score.AwayScore == 0);
         }
     }
 }
