@@ -13,9 +13,9 @@
         }
 
         [TestMethod()]
-        [DataRow(0, 1)]
-        [DataRow(1, 0)]
-        [DataRow(1, 1)]
+        [DataRow((uint)0, (uint)1)]
+        [DataRow((uint)1, (uint)0)]
+        [DataRow((uint)1, (uint)1)]
         public void UpdateScoreTest_Success(uint home, uint away)
         {
             Score score = new();
@@ -25,9 +25,9 @@
         }
 
         [TestMethod()]
-        [DataRow(0, 1)]
-        [DataRow(1, 0)]
-        [DataRow(1, 1)]
+        [DataRow((uint)0, (uint)1)]
+        [DataRow((uint)1, (uint)0)]
+        [DataRow((uint)1, (uint)1)]
         public void UpdateScoreTest_ThrowsArgumentException(uint home, uint away)
         {
             Score score = new();

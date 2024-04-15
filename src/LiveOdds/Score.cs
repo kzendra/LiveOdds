@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.Marshalling;
-
-namespace LiveOdds
+﻿namespace LiveOdds
 {
     public class Score
     {
@@ -10,6 +8,17 @@ namespace LiveOdds
 
         public uint AwayScore { get; private set; }
 
-        internal void UpdateScore(uint home, uint away) { }
+        internal void UpdateScore(uint home, uint away) 
+        {
+            //It might be able to decrease the score?
+            if (home < HomeScore)
+                throw new ArgumentException("Score cannot be decreased", nameof(home));
+
+            if (away < AwayScore)
+                throw new ArgumentException("Score cannot be decreased", nameof(away));
+
+            HomeScore = home;
+            AwayScore = away;
+        }
     }
 }
